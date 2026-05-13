@@ -7,10 +7,15 @@ import com.pravin.Linkedlist;
 void main() {
 //    Linkedlist LL = new Linkedlist();
 //    LL.insertfirst(10);
+//    LL.insertfirst(10);
+//    LL.insertfirst(20);
 //    LL.insertfirst(20);
 //    LL.insertfirst(30);
+//    LL.insertfirst(30);
+//    LL.insertfirst(40);
 //    LL.insertfirst(50);
-//
+//    LL.insertfirst(50);
+
 //    LL.display();
 //    LL.insertLast(11);
 //    LL.display();
@@ -29,6 +34,8 @@ void main() {
 //    LL.display();
 //    LL.remove(1);
 //    LL.find(110);
+//    LL.insertRecur(99,2);
+//    LL.removeduplicate();
 //    LL.display();
 
 //    Dll dll = new Dll();
@@ -42,13 +49,30 @@ void main() {
 //    dll.insertAt(1, 45);
 //    dll.display();
 
-    CLL cll = new CLL();
-    cll.insertFirst(10);
-    cll.insertFirst(20);
-    cll.insertFirst(30);
-    cll.insertFirst(40);
-    cll.insertLast(50);
+//    CLL cll = new CLL();
+//    cll.insertFirst(10);
+//    cll.insertFirst(20);
+//    cll.insertFirst(30);
+//    cll.insertFirst(40);
+//    cll.insertLast(50);
+//
+//    cll.delete(40);
+//    cll.display();
 
-    cll.delete(40);
-    cll.display();
+    Linkedlist f = new Linkedlist();
+    Linkedlist s = new Linkedlist();
+
+    f.insertLast(1);
+    f.insertLast(3);
+    f.insertLast(5);
+
+    s.insertLast(1);
+    s.insertLast(2);
+    s.insertLast(9);
+    s.insertLast(14);
+
+    Linkedlist ans = Linkedlist.merge(f, s);
+    ans.display();
 }
+
+

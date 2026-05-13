@@ -96,6 +96,28 @@ public class Linkedlist {
      return true;
     }
 
+    public Node insertRecur(int val, int indx){
+      head = insert(head, val, indx);
+      return head;
+    }
+
+    public Node insert(Node head, int val, int idx){
+     if(idx == 0){
+         Node node = new Node(val);
+         node.next = head;
+         size++;
+         return node;
+     }
+
+        if(head == null){
+            System.out.println("Index out of bounds");
+            return null;
+        }
+
+     head.next = insert(head.next, val, idx-1);
+     return head;
+    }
+
     public boolean remove(int idx){
      if(idx < 0 || idx > size) return false;
      if(idx == 0){
@@ -133,6 +155,49 @@ public class Linkedlist {
      IO.println("not found");
      return null;
      
+    }
+
+//    question remove duplicate leetcode 83
+    public void removeduplicate(){
+     Node node = head;
+      while (node.next != null){
+          if(node.data == node.next.data) {
+              node.next = node.next.next;
+              size--;
+          }else{
+              node = node.next;
+          }
+      }
+      tail = node;
+      tail.next = null;
+    }
+
+//    question 21 merge two sorted list
+    public static Linkedlist merge(Linkedlist first, Linkedlist sec){
+     Node f = first.head;
+     Node s = sec.head;
+
+     Linkedlist ans = new Linkedlist();
+     while (f != null && s != null){
+         if(f.data < s.data){
+             ans.insertLast(f.data);
+             f = f.next;
+         }else{
+             ans.insertLast(s.data);
+             s = s.next;
+         }
+     }
+
+     while (f != null){
+         ans.insertLast(f.data);
+         f = f.next;
+     }
+
+     while (s != null){
+         ans.insertLast(s.data);
+         s = s.next;
+     }
+     return ans;
     }
 
  public void display(){
