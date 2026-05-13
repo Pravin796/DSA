@@ -200,6 +200,41 @@ public class Linkedlist {
      return ans;
     }
 
+//    q 141 Linked list cycle
+public boolean hasCycle(Node list) {
+    Node f = head;
+    Node s = head;
+    while(f != null && f.next != null){
+        s = s.next;
+        f = f.next.next;
+
+        if(s == f) return true;
+    }
+    return false;
+}
+
+//length of cycle
+public int LengthCycle(Node list) {
+
+    Node f = head;
+    Node s = head;
+    while(f != null && f.next != null){
+        s = s.next;
+        f = f.next;
+
+        if(s == f) {
+         Node temp = s;
+         int length = 0;
+         do{
+             temp = temp.next;
+             length++;
+         }while (temp != s);
+         return length;
+        }
+    }
+    return 0;
+}
+
  public void display(){
      Node temp = head;
      while(temp != null){
